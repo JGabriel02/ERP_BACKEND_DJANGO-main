@@ -27,16 +27,9 @@ SECRET_KEY = 'django-insecure-1gaaqxawql#8e9+4i5y_q0v77-*tzpe2-47zq(u*(7!90-q2et
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = [
-    'erp-backend-django-main.vercel.app',
-    'localhost',
-    '127.0.0.1'
-]
+CORS_ALLOW_ALL_ORIGINS = os.getenv('DJANGO_ALLOW_ALL_ORIGINS', 'False').lower() == 'true'
 
-CORS_ALLOWED_ORIGINS = [
-    "https://erp-backend-django-main.vercel.app",
-    "http://localhost:3000",  # Se estiver usando frontend local
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -147,8 +140,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = 'static/'
+STATIC_root = BASE_DIR / "staticfiles"
 
 
 # Default primary key field type
