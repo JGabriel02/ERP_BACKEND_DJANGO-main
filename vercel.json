@@ -5,7 +5,7 @@
         "src": "core/wsgi.py",
         "use": "@vercel/python",
         "config": {
-          "runtime": "python3.11",
+          "runtime": "python3.13.2",
           "installCommand": "pip install -r requirements.txt --ignore-installed"
         }
       }

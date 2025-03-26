@@ -4,3 +4,5 @@ __pycach__
 /.mypy_cache
 /.vscode
 /venv
+.mariadb
+.mysql_config
