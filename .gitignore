@@ -1,0 +1,6 @@
+*.log
+*.pyc
+__pycach__
+/.mypy_cache
+/.vscode
+/venv
