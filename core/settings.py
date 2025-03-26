@@ -35,7 +35,7 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS.copy()
 
 # Configurações essenciais
-CORS_ALLOW_CREDENTIALS = True  # Se estiver usando cookies/tokens
+CORS_ALLOW_CREDENTIALS = False  
 CORS_ALLOW_METHODS = [
     'DELETE',
     'GET',
@@ -46,6 +46,17 @@ CORS_ALLOW_METHODS = [
 ]
 ALLOWED_HOSTS = ['*']
 
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 # Application definition
 
