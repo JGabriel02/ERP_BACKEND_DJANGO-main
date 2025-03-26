@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
-
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +27,7 @@ SECRET_KEY = 'django-insecure-1gaaqxawql#8e9+4i5y_q0v77-*tzpe2-47zq(u*(7!90-q2et
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-CORS_ALLOW_ALL_ORIGINS = os.getenv('DJANGO_ALLOW_ALL_HOSTS', 'http://localhost').split(',')
+CORS_ALLOW_ALL_ORIGINS = os.getenv('DJANGO_ALLOW_ALL_ORIGINS', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = []
 
@@ -94,11 +93,14 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Erp',
-        'USER': 'postgres',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME', 'ERP-DATABASE'),
+        'USER': os.environ.get('DB_USER', 'ERP-DATABASE_owner'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'npg_MONhz3BYk9cG'),
+        'HOST': os.environ.get('DB_HOST', 'ep-calm-bird-a50hpb02-pooler.us-east-2.aws.neon.tech'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
     }
 }
 
