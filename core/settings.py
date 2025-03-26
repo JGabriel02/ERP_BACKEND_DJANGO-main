@@ -27,10 +27,16 @@ SECRET_KEY = 'django-insecure-1gaaqxawql#8e9+4i5y_q0v77-*tzpe2-47zq(u*(7!90-q2et
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-CORS_ALLOW_ALL_ORIGINS = os.getenv('DJANGO_ALLOW_ALL_ORIGINS', 'False').lower() == 'true'
+ALLOWED_HOSTS = [
+    'erp-backend-django-main.vercel.app',
+    'localhost',
+    '127.0.0.1'
+]
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1']
-
+CORS_ALLOWED_ORIGINS = [
+    "https://erp-backend-django-main.vercel.app",
+    "http://localhost:3000",  # Se estiver usando frontend local
+]
 
 
 # Application definition
