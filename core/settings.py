@@ -27,8 +27,23 @@ SECRET_KEY = 'django-insecure-1gaaqxawql#8e9+4i5y_q0v77-*tzpe2-47zq(u*(7!90-q2et
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False").lower() == "True"
 
-CORS_ALLOW_ALL_ORIGINS = os.getenv('DJANGO_ALLOW_ALL_ORIGINS', 'False').lower() == 'true'
+CORS_ALLOWED_ORIGINS = [
+    "http://front-erp-main.vercel.app",
+    "http://localhost:3000",  # Para desenvolvimento
+]
 
+CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS.copy()
+
+# Configurações essenciais
+CORS_ALLOW_CREDENTIALS = True  # Se estiver usando cookies/tokens
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
 ALLOWED_HOSTS = ['*']
 
 
