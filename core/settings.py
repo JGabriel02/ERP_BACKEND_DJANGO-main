@@ -29,7 +29,7 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 CORS_ALLOW_ALL_ORIGINS = os.getenv('DJANGO_ALLOW_ALL_ORIGINS', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
